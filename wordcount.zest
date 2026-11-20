@@ -1,0 +1,15 @@
+# Count how often each word appears.
+text = "the quick brown fox jumps over the lazy dog the end"
+
+counts = {}
+for each word in split(text)
+  if word in counts
+    counts[word] += 1
+  else
+    counts[word] = 1
+  end
+end
+
+for each word in sorted(keys(counts))
+  say word, counts[word]
+end

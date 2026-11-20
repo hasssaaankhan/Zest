@@ -1,0 +1,5 @@
+# Your first Zest program.
+say "Hello, world!"
+
+name = "Ada"
+say "Nice to meet you, {name}."

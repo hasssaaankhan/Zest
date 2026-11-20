@@ -1,0 +1,31 @@
+# A tiny bank account, with functions, maps and error handling.
+to make_account(owner, balance = 0)
+  give {owner: owner, balance: balance}
+end
+
+to deposit(account, amount)
+  if amount <= 0
+    fail "You can only deposit more than 0."
+  end
+  account.balance += amount
+end
+
+to withdraw(account, amount)
+  if amount > account.balance
+    fail "Not enough money: {account.owner} has only {account.balance}."
+  end
+  account.balance -= amount
+end
+
+ada = make_account("Ada", 100)
+deposit(ada, 50)
+say "Balance:", ada.balance
+
+try
+  withdraw(ada, 500)
+catch problem
+  say "Could not withdraw:", problem
+end
+
+withdraw(ada, 30)
+say "Balance now:", ada.balance

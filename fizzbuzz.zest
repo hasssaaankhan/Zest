@@ -1,0 +1,13 @@
+# Count from 1 to 20.
+# Say Fizz for multiples of 3, Buzz for multiples of 5, and FizzBuzz for both.
+for each n in 1 to 20
+  if n % 15 == 0
+    say "FizzBuzz"
+  else if n % 3 == 0
+    say "Fizz"
+  else if n % 5 == 0
+    say "Buzz"
+  else
+    say n
+  end
+end

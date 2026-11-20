@@ -1,0 +1,29 @@
+# Fibonacci numbers, two ways.
+
+# 1. A function that calls itself (clear, but slow for big numbers).
+to fib(n)
+  if n < 2
+    give n
+  end
+  give fib(n - 1) + fib(n - 2)
+end
+
+numbers = []
+for each i in 0 to 9
+  add(numbers, fib(i))
+end
+say "The first ten:", join(numbers, ", ")
+
+# 2. A loop (fast, even for big numbers).
+to fib_fast(n)
+  a = 0
+  b = 1
+  repeat n times
+    next = a + b
+    a = b
+    b = next
+  end
+  give a
+end
+
+say "The 90th:", fib_fast(90)

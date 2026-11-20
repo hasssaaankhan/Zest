@@ -1,0 +1,87 @@
+# A quick tour of Zest. Run it and compare each line with the output.
+
+# Values and names
+name = "Zest"
+version = 1
+pi = 3.14159
+ready = true
+say "Welcome to {name} version {version}!"
+
+# Numbers
+say 7 + 3, 7 - 3, 7 * 3, 7 / 2, 7 % 3, 2 ^ 10
+say 0.1 + 0.2
+
+# Text
+word = "hello"
+say upper(word), length(word), word[1], word[-1]
+say "ha" * 3
+say slice(word, 2, 4)
+
+# Lists count from 1
+colors = ["red", "green", "blue"]
+add(colors, "pink")
+say colors
+say colors[1], colors[-1], length(colors)
+say "green" in colors
+
+# Maps
+person = {name: "Ada", age: 36}
+person.city = "London"
+say person.name, person["age"]
+say keys(person)
+
+# Decisions
+age = 20
+if age >= 18 and age < 65
+  say "adult"
+else if age >= 65
+  say "senior"
+else
+  say "child"
+end
+
+# Loops
+for each color in colors
+  say "I like", color
+end
+for each i in 3 to 1 by -1
+  say i
+end
+repeat 2 times
+  say "again"
+end
+n = 0
+while n < 3
+  n += 1
+  if n == 2
+    skip
+  end
+  say "n is", n
+end
+
+# Functions
+to area(width, height = 1)
+  give width * height
+end
+say area(3, 4), area(5)
+
+# Closures: a function can remember where it was made
+to make_counter()
+  count = 0
+  to next()
+    count += 1
+    give count
+  end
+  give next
+end
+counter = make_counter()
+counter()
+counter()
+say "counted", counter()
+
+# Errors you can catch
+try
+  say 1 / 0
+catch problem
+  say "caught:", problem
+end

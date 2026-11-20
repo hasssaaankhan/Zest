@@ -1,0 +1,20 @@
+# Find the prime numbers up to 50.
+to is_prime(n)
+  if n < 2
+    give false
+  end
+  for each d in 2 to floor(sqrt(n))
+    if n % d == 0
+      give false
+    end
+  end
+  give true
+end
+
+primes = []
+for each n in 1 to 50
+  if is_prime(n)
+    add(primes, n)
+  end
+end
+say "Primes up to 50:", join(primes, " ")

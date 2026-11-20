@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zest-lang"
+version = "1.0.0"
+description = "Zest: a small programming language that is easy to read, write and learn."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["programming-language", "interpreter", "education", "beginner-friendly"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Interpreters",
+    "Intended Audience :: Education",
+]
+
+[project.scripts]
+zest = "zest.cli:main"
+
+[tool.setuptools]
+packages = ["zest"]

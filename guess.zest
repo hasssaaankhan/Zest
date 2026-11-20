@@ -1,0 +1,22 @@
+# A number guessing game.
+secret = random(1, 20)
+say "I am thinking of a number from 1 to 20."
+
+tries = 0
+while true
+  try
+    guess = number(ask("Your guess? "))
+  catch problem
+    say "Please type a number."
+    skip
+  end
+  tries += 1
+  if guess < secret
+    say "Too low."
+  else if guess > secret
+    say "Too high."
+  else
+    say "You got it in {tries} tries!"
+    stop
+  end
+end
